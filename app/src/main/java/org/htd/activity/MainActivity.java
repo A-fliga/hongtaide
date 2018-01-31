@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     //是否第一次resume,是否加载完成了网页
     private Boolean isFirstResume = true, isLoaded = false;
 
-    private static final String URL = "http://39.104.82.75/driver/login";
+    private static final String URL = "http://39.104.82.75/driver/index";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -150,7 +150,6 @@ public class MainActivity extends AppCompatActivity {
         webView.addJavascriptInterface(new Android2Js(this), "hongtaide");//Android2JS类对象映射到js的test对象
         webView.setWebViewClient(new webViewClient());
         webView.loadUrl(URL);
-        isLoaded = true;
     }
 
 
@@ -159,6 +158,12 @@ public class MainActivity extends AppCompatActivity {
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
             view.loadUrl(url);
             return true;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            isLoaded = true;
         }
     }
 

@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/mlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="org.htd.activity.MainActivity">
+        <activity
+            android:name="org.htd.activity.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
